@@ -8,17 +8,35 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed 
 
 */
 
+const btnPlay = document.querySelector('#btn_play');
+const btnReset = document.querySelector('#btn_reset');
+const limit = 100;
+
 //al click del button si genera una griglia di gioco
-document.querySelector('button').addEventListener('click', function (e) {
+btnPlay.addEventListener('click', function (e) {
 
     //console.log('click');
 
-
+    btnPlay.style.display = 'none';
+    btnReset.style.display = 'inline-block';
     const gridEl = document.querySelector('.grid');
-    const limit = 100;
     generateGrid(gridEl, limit);
 
 
+});
+
+btnReset.addEventListener('click', function (e) {
+    btnPlay.style.display = 'inline-block';
+    btnReset.style.display = 'none';
+
+    for (let i = 0; i < limit; i++) {
+
+        // Select the first element with class "cell"
+        const cells = document.querySelector(".cell");
+        //remove the selected element from the dom
+        cells.remove();
+
+    }
 });
 
 //griglia formata da 10 celle x 10 celle
@@ -41,3 +59,4 @@ function generateGrid(domEl, limit) {
         })
     }
 }
+
