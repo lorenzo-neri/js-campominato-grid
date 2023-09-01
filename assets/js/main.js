@@ -26,7 +26,6 @@ document.querySelector('button').addEventListener('click', function (e) {
 function generateGrid(domEl, limit) {
 
     //genero la griglia 
-    //funzione per
     for (let i = 0; i < limit; i++) {
 
         const cellEl = document.createElement('div');
